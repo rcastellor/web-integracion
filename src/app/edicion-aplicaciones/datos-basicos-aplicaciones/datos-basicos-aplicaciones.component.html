@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-header">
+    Datos generales
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <form class="clr-form">
+          <div class="clr-form-control">
+              <label for="aplicacion" class="clr-control-label">Aplicación</label>
+              <input type="text" id="aplicacion" placeholder="Aplicación" class="clr-input"
+              name="aplicacion" [(ngModel)]="datos.aplicacion">
+          </div>
+          <div class="clr-form-control">
+              <label for="abreviatura" class="clr-control-label">Abreviatura</label>
+          <input type="text" id="abreviatura" placeholder="Abreviatura" class="clr-input"
+          name="abreviatura" [(ngModel)]="datos.abreviatura">
+        </div>
+        <div class="clr-form-control">
+            <label for="descripcion" class="clr-control-label">Descripción</label>
+          <textarea id="descripcion" rows="3" class="clr-textarea"
+          name="descripcion" [(ngModel)]="datos.descripcion"></textarea>
+        </div>
+      </form>
+      <button type="button" class="btn btn-outline">Cancel</button>
+      <button type="button" class="btn btn-primary">Save</button>
+    </div>
+  </div>
+</div>

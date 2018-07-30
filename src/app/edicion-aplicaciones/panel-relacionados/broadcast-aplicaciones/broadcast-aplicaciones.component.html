@@ -1,0 +1,52 @@
+<clr-datagrid class="datagrid-compact">
+    <clr-dg-column>MENSAJE</clr-dg-column>
+    <clr-dg-column>Formato</clr-dg-column>
+    <clr-dg-column>Versión</clr-dg-column>
+    <clr-dg-row *ngFor="let mensaje of mensajes">
+      <clr-dg-cell>{{mensaje.mensaje}}</clr-dg-cell>
+      <clr-dg-cell>{{mensaje.formato}}</clr-dg-cell>
+      <clr-dg-cell>{{mensaje.version}}</clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+  <button class="btn btn-primary" (click)="nuevoMensaje=true">Añadir mensaje</button>
+  
+  <clr-modal [(clrModalOpen)]="nuevoMensaje">
+    <h3 class="modal-title">Introduzca los datos del mensaje</h3>
+    <div class="modal-body">
+      <form class="clr-form">
+        <section class="form-block">
+          <div class="form-group">
+            <label for="mensaje" class="clr-control-label">Mensaje</label>
+            <input type="text"
+             id="mensaje"
+             placeholder="Mensaje"
+             class="clr-input"
+             name="mensaje"
+             [(ngModel)]="mensaje.mensaje">
+          </div>
+          <div class="form-group">
+            <label for="formato" class="clr-control-label">Formato</label>
+            <input type="text"
+            id="formato"
+            placeholder="Formato"
+            class="clr-input"
+            name="formato"
+            [(ngModel)]="mensaje.formato">
+          </div>
+          <div class="form-group">
+            <label for="version" class="clr-control-label">Versión</label>
+            <input type="text"
+            id="version"
+            placeholder="Versión"
+            class="clr-input"
+            name="version"
+            [(ngModel)]="mensaje.version">
+          </div>
+        </section>
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+    </div>
+  </clr-modal>

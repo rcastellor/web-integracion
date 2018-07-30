@@ -1,0 +1,36 @@
+<div class="card">
+    <div class="card-header">
+        Relaciones Aplicación
+    </div>
+    <div class="card-block">
+        <div class="card-text">
+            <clr-tabs>
+                <clr-tab>
+                    <button clrTabLink>Servicios Publicados</button>
+                    <clr-tab-content *clrIfActive>
+                        <app-peticiones-sincronas-aplicaciones></app-peticiones-sincronas-aplicaciones>
+                    </clr-tab-content>
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Servicios Consumidos</button>
+                    <clr-tab-content *clrIfActive>
+                        <app-servicios-sincronos-aplicaciones></app-servicios-sincronos-aplicaciones>
+                    </clr-tab-content>
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Mensajes Consumidos</button>
+                    <clr-tab-content *clrIfActive>
+                        <app-notificaciones-aplicaciones></app-notificaciones-aplicaciones>
+                    </clr-tab-content>
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Mensajes Generados</button>
+                    <clr-tab-content *clrIfActive>
+                        <app-broadcast-aplicaciones></app-broadcast-aplicaciones>
+                    </clr-tab-content>
+                </clr-tab>
+
+             </clr-tabs>
+        </div>
+    </div>
+</div>
