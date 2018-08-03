@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AplicacionActivaService } from './services/aplicacion-activa.service';
 
 @Component({
   selector: 'app-edicion-aplicaciones',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EdicionAplicacionesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private aaService: AplicacionActivaService) { }
 
   ngOnInit() {
+    this.aaService.load();
   }
 
 }

@@ -1,7 +1,4 @@
 <div class="card">
-    <div class="card-header">
-        Relaciones Aplicación
-    </div>
     <div class="card-block">
         <div class="card-text">
             <clr-tabs>
@@ -9,6 +6,12 @@
                     <button clrTabLink>Servicios Publicados</button>
                     <clr-tab-content *clrIfActive>
                         <app-peticiones-sincronas-aplicaciones></app-peticiones-sincronas-aplicaciones>
+                    </clr-tab-content>
+                </clr-tab>
+                <clr-tab>
+                    <button clrTabLink>Mensajes Generados</button>
+                    <clr-tab-content *clrIfActive>
+                        <app-broadcast-aplicaciones></app-broadcast-aplicaciones>
                     </clr-tab-content>
                 </clr-tab>
                 <clr-tab>
@@ -23,14 +26,7 @@
                         <app-notificaciones-aplicaciones></app-notificaciones-aplicaciones>
                     </clr-tab-content>
                 </clr-tab>
-                <clr-tab>
-                    <button clrTabLink>Mensajes Generados</button>
-                    <clr-tab-content *clrIfActive>
-                        <app-broadcast-aplicaciones></app-broadcast-aplicaciones>
-                    </clr-tab-content>
-                </clr-tab>
-
-             </clr-tabs>
+            </clr-tabs>
         </div>
     </div>
 </div>

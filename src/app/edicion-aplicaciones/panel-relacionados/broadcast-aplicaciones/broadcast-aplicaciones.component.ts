@@ -44,4 +44,8 @@ export class BroadcastAplicacionesComponent implements OnInit {
     this.mensajes = this.aaService.aplicacion.panelRelacionados.broadcast;
   }
 
+  onEliminar(index: number) {
+    this.mensajes.splice(index, 1);
+  }
+
 }

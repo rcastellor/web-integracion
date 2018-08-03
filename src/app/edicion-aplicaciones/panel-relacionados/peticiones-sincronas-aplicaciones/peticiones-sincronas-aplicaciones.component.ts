@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AplicacionActivaService } from '../../services/aplicacion-activa.service';
+import { PeticionSincrona } from '../../../modelo/servicio.model';
 
 @Component({
   selector: 'app-peticiones-sincronas-aplicaciones',
@@ -10,21 +11,9 @@ export class PeticionesSincronasAplicacionesComponent implements OnInit {
 
   nuevoServicio = false;
 
-  servicio = {
-    servicio: '',
-    peticion: '',
-    respuesta: '',
-    formato: '',
-    version: ''
-  };
+  servicio = new PeticionSincrona();
 
-  servicios: {
-    servicio: string;
-    peticion: string;
-    respuesta: string;
-    formato: string;
-    version: string;
-  }[];
+  servicios: PeticionSincrona[];
 
   constructor(private aaService: AplicacionActivaService) {
     // this.servicios = [];
@@ -44,6 +33,9 @@ export class PeticionesSincronasAplicacionesComponent implements OnInit {
     this.servicio.peticion = '';
     this.servicio.respuesta = '';
     this.servicio.version = '';
+  }
+  onEliminar(index: number) {
+    this.servicios.splice(index, 1);
   }
 
   onSave() {

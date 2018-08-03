@@ -21,7 +21,6 @@ export class AplicacionActivaService {
   };
 
   constructor() {
-    this.load();
   }
 
   load() {
@@ -48,8 +47,20 @@ export class AplicacionActivaService {
       panelRelacionados: {
         notificaciones: [],
         broadcast: [],
-        peticiones: [],
-        servicios: []
+        peticiones: [{ servicio: 'Consulta Demográficos HIS',
+                        peticion: 'QBP_Q21',
+                        respuesta: 'RSP_K21',
+                        formato: 'HL7 XML',
+                        version: '2.6',
+                        descripcion: 'Consulta de demograficos a HIS'},
+                     { servicio: 'Consulta Episodio HIS',
+                        peticion: 'QBP_ZV1',
+                        respuesta: 'RSP_K21',
+                        formato: 'HL7 XML',
+                        version: '2.6',
+                        descripcion: 'Consulta de datos de episodio a HIS'}
+        ], servicios: [
+        ]
       }
     };
   }

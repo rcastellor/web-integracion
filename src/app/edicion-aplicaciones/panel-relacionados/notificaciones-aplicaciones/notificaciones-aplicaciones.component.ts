@@ -48,4 +48,8 @@ export class NotificacionesAplicacionesComponent implements OnInit {
     this.mensajes = this.aaService.aplicacion.panelRelacionados.notificaciones;
   }
 
+  onEliminar(index: number) {
+    this.mensajes.splice(index, 1);
+  }
+
 }

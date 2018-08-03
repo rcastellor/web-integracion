@@ -1,11 +1,13 @@
 <clr-datagrid class="datagrid-compact">
-    <clr-dg-column>MENSAJE</clr-dg-column>
+    <clr-dg-column>Mensaje</clr-dg-column>
     <clr-dg-column>Formato</clr-dg-column>
     <clr-dg-column>Versión</clr-dg-column>
-    <clr-dg-row *ngFor="let mensaje of mensajes">
+    <clr-dg-column></clr-dg-column>
+    <clr-dg-row *ngFor="let mensaje of mensajes; let i = index">
       <clr-dg-cell>{{mensaje.mensaje}}</clr-dg-cell>
       <clr-dg-cell>{{mensaje.formato}}</clr-dg-cell>
       <clr-dg-cell>{{mensaje.version}}</clr-dg-cell>
+      <clr-dg-cell><a class="label label-warning" style="cursor: pointer;" (click)="onEliminar(i)">Eliminar</a></clr-dg-cell>
     </clr-dg-row>
   </clr-datagrid>
   <button class="btn btn-primary" (click)="nuevoMensaje=true">Añadir mensaje</button>
@@ -46,7 +48,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="onCancel()">Cancel</button>
-      <button type="button" class="btn btn-primary" (click)="onSave()">Save</button>
+      <button type="button" class="btn btn-outline" (click)="onCancel()">Cancelar</button>
+      <button type="button" class="btn btn-primary" (click)="onSave()">Guardar</button>
     </div>
   </clr-modal>

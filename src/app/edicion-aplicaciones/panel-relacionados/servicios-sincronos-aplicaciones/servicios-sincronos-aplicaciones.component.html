@@ -5,13 +5,15 @@
     <clr-dg-column>Formato</clr-dg-column>
     <clr-dg-column>Versión</clr-dg-column>
     <clr-dg-column>Publicado Por</clr-dg-column>
-    <clr-dg-row *ngFor="let servicio of servicios">
+    <clr-dg-column></clr-dg-column>
+    <clr-dg-row *ngFor="let servicio of servicios; let i = index">
       <clr-dg-cell>{{servicio.servicio}}</clr-dg-cell>
       <clr-dg-cell>{{servicio.peticion}}</clr-dg-cell>
       <clr-dg-cell>{{servicio.respuesta}}</clr-dg-cell>
       <clr-dg-cell>{{servicio.formato}}</clr-dg-cell>
       <clr-dg-cell>{{servicio.version}}</clr-dg-cell>
       <clr-dg-cell>{{servicio.aplicacion}}</clr-dg-cell>
+      <clr-dg-cell><a class="label label-warning" style="cursor: pointer;" (click)="onEliminar(i)">Eliminar</a></clr-dg-cell>
     </clr-dg-row>
   </clr-datagrid>
   <button class="btn btn-primary" (click)="nuevoServicio = true">Añadir Servicio</button>
@@ -86,8 +88,8 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-outline" (click)="onCancel()">Cancel</button>
-      <button type="button" class="btn btn-primary" [disabled]="!f.form.valid" (click)="onSave()">Save</button>
+      <button type="button" class="btn btn-outline" (click)="onCancel()">Cancelar</button>
+      <button type="button" class="btn btn-primary" [disabled]="!f.form.valid" (click)="onSave()">Guardar</button>
     </div>
   </clr-modal>
   <datalist id="versiones">

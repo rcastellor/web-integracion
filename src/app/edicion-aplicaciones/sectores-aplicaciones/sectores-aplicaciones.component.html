@@ -2,13 +2,13 @@
   <div class="card-block">
     <div class="card-text">
       <clr-datagrid class="datagrid-compact">
-        <clr-dg-column>SECTOR</clr-dg-column>
+        <clr-dg-column>Sector</clr-dg-column>
         <clr-dg-column>Producción</clr-dg-column>
         <clr-dg-column>Pruebas</clr-dg-column>
         <clr-dg-column>Desplegado</clr-dg-column>
         <clr-dg-column>Previsto</clr-dg-column>
         <clr-dg-row *ngFor="let sector of sectores; let i = index">
-          <clr-dg-cell>{{sector.sector}}</clr-dg-cell>
+          <clr-dg-cell><b>{{sector.sector}}</b></clr-dg-cell>
           <clr-dg-cell>
               <input type="checkbox" [(ngModel)]="sector.produccion">
           </clr-dg-cell>
