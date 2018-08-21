@@ -1,0 +1,38 @@
+<header class="header header-2">
+    <div class="branding">
+      <span class="nav-link">
+          <clr-icon shape="home"></clr-icon>
+          <span class="title">Web Integración</span>
+      </span>
+   </div>
+    <div class="header-nav">
+        <a class="nav-link nav-text"
+              routerLink="/dashboard"
+              routerLinkActive="active">Monitorización</a>
+        <a class="nav-link nav-text"
+              routerLink="/admin"
+              routerLinkActive="active">Administración</a>
+      </div>
+      <div class="header-actions">
+        <clr-dropdown>
+          <button class="nav-text" clrDropdownTrigger>
+              rcastellor@ext.aragon.es
+              <clr-icon shape="caret down"></clr-icon>
+          </button>
+          <clr-dropdown-menu *clrIfOpen clrPosition="bottom-right">
+              <a clrDropdownItem>Acerca de</a>
+              <a clrDropdownItem>Log out</a>
+          </clr-dropdown-menu>
+      </clr-dropdown>
+    </div>     
+  </header>
+  <nav class="subnav" >
+    <a (click)="onHide()"><clr-icon shape="bars"></clr-icon></a>
+    <ul class="nav">
+      <li *ngFor="let opcion of opciones" class="nav-item">
+        <a class="nav-link"
+            [routerLink]="opcion.ruta"
+            routerLinkActive="active">{{opcion.opcion}}</a>
+      </li>
+    </ul>
+  </nav>

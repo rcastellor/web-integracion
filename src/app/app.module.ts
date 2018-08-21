@@ -23,6 +23,10 @@ import { FormsModule } from '../../node_modules/@angular/forms';
 import {
   ServiciosSincronosAplicacionesComponent
 } from './edicion-aplicaciones/panel-relacionados/servicios-sincronos-aplicaciones/servicios-sincronos-aplicaciones.component';
+import { AppRoutingModule } from './/app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { ToolbarComponent } from './navegacion/toolbar/toolbar.component';
+import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
 
 @NgModule({
   declarations: [
@@ -34,14 +38,18 @@ import {
     PeticionesSincronasAplicacionesComponent,
     NotificacionesAplicacionesComponent,
     BroadcastAplicacionesComponent,
-    ServiciosSincronosAplicacionesComponent
+    ServiciosSincronosAplicacionesComponent,
+    DashboardComponent,
+    ToolbarComponent,
+    PanelAdministracionComponent
   ],
   imports: [
     BrowserModule,
     ClarityModule,
     ClrFormsNextModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
