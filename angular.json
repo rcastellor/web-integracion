@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "clarity-app": {
+    "web-integracion": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/clarity-app",
+            "outputPath": "dist/web-integracion",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -55,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "clarity-app:build"
+            "browserTarget": "web-integracion:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "clarity-app:build:production"
+              "browserTarget": "web-integracion:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "clarity-app:build"
+            "browserTarget": "web-integracion:build"
           }
         },
         "test": {
@@ -100,7 +100,7 @@
         }
       }
     },
-    "clarity-app-e2e": {
+    "web-integracion-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -108,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "clarity-app:serve"
+            "devServerTarget": "web-integracion:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "clarity-app:serve:production"
+              "devServerTarget": "web-integracion:serve:production"
             }
           }
         },
@@ -128,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "clarity-app"
+  "defaultProject": "web-integracion"
 }
