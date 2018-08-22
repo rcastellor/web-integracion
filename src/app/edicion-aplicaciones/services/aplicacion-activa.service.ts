@@ -1,67 +1,47 @@
 import { Injectable } from '@angular/core';
-import { SectorAplicacion } from '../../modelo/sector.model';
+import { Aplicacion } from '../../modelo/aplicaciones.model';
+import { AplicacionesService } from '../../services/aplicaciones.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AplicacionActivaService {
-  aplicacion: {
-    datosGenerales: {
-      aplicacion: string;
-      abreviatura: string;
-      descripcion: string;
-    };
-    sectores: SectorAplicacion[];
-    panelRelacionados: {
-      notificaciones: any[];
-      broadcast: any[];
-      peticiones: any[];
-      servicios: any[];
-    }
-  };
+  aplicacion: Aplicacion;
 
-  constructor() {
+  constructor(private _apsService: AplicacionesService) {
   }
 
-  load() {
+  reset() {
     this.aplicacion = {
       datosGenerales: {
-        aplicacion: 'Sistema Información Hospitalaria',
-        abreviatura: 'HIS',
-        descripcion: 'Sistema de información hospitalaria corporativo del proveedor HP'
+        aplicacion: '',
+        abreviatura: '',
+        descripcion: ''
       },
       sectores: [
-        { sector: 'PREPRODUCCION', produccion: false, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'CENTRAL', produccion: false, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'PROTOTIPO', produccion: false, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'CLINICO', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'BARBASTRO', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'SERVET', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'TERUEL', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'CALATAYUD', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'ALCAÑIZ', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'HUESCA', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'ROYO', produccion: true, pruebas: false, desplegada: true, previsto: true },
-        { sector: 'PROVINCIAL', produccion: true, pruebas: false, desplegada: true, previsto: true }
+        { sector: 'PREPRODUCCION', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'CENTRAL', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'PROTOTIPO', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'CLINICO', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'BARBASTRO', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'SERVET', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'TERUEL', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'CALATAYUD', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'ALCAÑIZ', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'HUESCA', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'ROYO', produccion: false, pruebas: false, desplegada: false, previsto: false },
+        { sector: 'PROVINCIAL', produccion: false, pruebas: false, desplegada: false, previsto: false }
       ],
       panelRelacionados: {
         notificaciones: [],
         broadcast: [],
-        peticiones: [{ servicio: 'Consulta Demográficos HIS',
-                        peticion: 'QBP_Q21',
-                        respuesta: 'RSP_K21',
-                        formato: 'HL7 XML',
-                        version: '2.6',
-                        descripcion: 'Consulta de demograficos a HIS'},
-                     { servicio: 'Consulta Episodio HIS',
-                        peticion: 'QBP_ZV1',
-                        respuesta: 'RSP_K21',
-                        formato: 'HL7 XML',
-                        version: '2.6',
-                        descripcion: 'Consulta de datos de episodio a HIS'}
-        ], servicios: [
-        ]
+        peticiones: [],
+        servicios: []
       }
     };
+  }
+
+  load(id: number) {
+    this.aplicacion = this._apsService.obtenAplicacion(id);
   }
 }

@@ -1,44 +1,48 @@
 import { Injectable } from '@angular/core';
 import { of, Observable } from 'rxjs';
-import { ListaAplicacion } from '../modelo/aplicaciones.model';
+import { map } from 'rxjs/operators';
+import { ListaAplicacion, Aplicacion } from '../modelo/aplicaciones.model';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AplicacionesService {
 
+  identificador = 0;
+
+  aplicaciones: Aplicacion[] = [];
+
+
   constructor() { }
 
+  añadirAplicacion(aplicacion: Aplicacion) {
+    aplicacion.id = ++this.identificador;
+    this.aplicaciones.push(aplicacion);
+  }
+
+  borrarAplicacion(id: number) {
+    for (let i = 0; i < this.aplicaciones.length; i++) {
+      if (this.aplicaciones[i].id === id) {
+        this.aplicaciones.splice(i, 1);
+        return;
+      }
+    }
+  }
+
+  obtenAplicacion(id: number): Aplicacion {
+    console.log(this.aplicaciones);
+    for (const app of this.aplicaciones) {
+      if (app.id === id) {
+        return app;
+      }
+    }
+    return null;
+  }
+
   obtenAplicaciones(): Observable<ListaAplicacion[]> {
-    return of([
-      {
-        id: 1,
-        abreviatura: 'HIS',
-        aplicacion: 'Sistema Información Hospitalaria'
-      }, {
-        id: 2,
-        abreviatura: 'BDU',
-        aplicacion: 'Base de datos de usuarios'
-      }, {
-        id: 3,
-        abreviatura: 'EMPI',
-        aplicacion: 'Base de datos de usuarios'
-      }, {
-        id: 4,
-        abreviatura: 'RIS',
-        aplicacion: 'Sistema Radiología'
-      }, {
-        id: 5,
-        abreviatura: 'HCE',
-        aplicacion: 'Historia clinica electronica'
-      }, {
-        id: 6,
-        abreviatura: 'PACS',
-        aplicacion: 'Repositorio imagen clinica'
-      }, {
-        id: 7,
-        abreviatura: 'MODULAB',
-        aplicacion: 'Base de datos de usuarios'
-      }]);
+    const lista = this.aplicaciones.map((app: Aplicacion) => {
+      return {id: app.id, abreviatura: app.datosGenerales.abreviatura, aplicacion: app.datosGenerales.descripcion};
+    });
+    return of(lista);
   }
 }

@@ -12,6 +12,9 @@
         <a class="nav-link nav-text"
               routerLink="/admin"
               routerLinkActive="active">Administración</a>
+        <a class="nav-link nav-text"
+              routerLink="/mapa"
+              routerLinkActive="active">Mapa Integraciones</a>
       </div>
       <div class="header-actions">
         <clr-dropdown>
@@ -27,7 +30,7 @@
     </div>     
   </header>
   <nav class="subnav" >
-    <a (click)="onHide()"><clr-icon shape="bars"></clr-icon></a>
+    <a (click)="onHide()"><clr-icon *ngIf="!hide" shape="window-min"></clr-icon><clr-icon *ngIf="hide" shape="window-restore"></clr-icon></a>
     <ul class="nav">
       <li *ngFor="let opcion of opciones" class="nav-item">
         <a class="nav-link"

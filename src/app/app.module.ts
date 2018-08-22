@@ -27,6 +27,7 @@ import { AppRoutingModule } from './/app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './navegacion/toolbar/toolbar.component';
 import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
+import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integraciones.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { PanelAdministracionComponent } from './panel-administracion/panel-admin
     ServiciosSincronosAplicacionesComponent,
     DashboardComponent,
     ToolbarComponent,
-    PanelAdministracionComponent
+    PanelAdministracionComponent,
+    MapaIntegracionesComponent
   ],
   imports: [
     BrowserModule,

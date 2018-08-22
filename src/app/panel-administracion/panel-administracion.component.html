@@ -21,6 +21,7 @@
                 </clr-dg-row>
                 <clr-dg-footer>
                     <clr-dg-pagination #pagination [clrDgPageSize]="5">
+                        <a [routerLink]="['/admin', 'aplicaciones']" ><clr-icon shape="add-text"></clr-icon></a>
                         {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
                         of {{pagination.totalItems}} aplicaciones
                     </clr-dg-pagination>

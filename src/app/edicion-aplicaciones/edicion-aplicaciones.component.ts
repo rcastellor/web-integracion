@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { AplicacionActivaService } from './services/aplicacion-activa.service';
+
 
 @Component({
   selector: 'app-edicion-aplicaciones',
@@ -8,10 +10,18 @@ import { AplicacionActivaService } from './services/aplicacion-activa.service';
 })
 export class EdicionAplicacionesComponent implements OnInit {
 
-  constructor(private aaService: AplicacionActivaService) { }
+  constructor(private _aaService: AplicacionActivaService,
+              private _aRoute: ActivatedRoute) { }
 
   ngOnInit() {
-    this.aaService.load();
+    if (!this._aRoute.params['id']) {
+      this._aaService.reset();
+    }
+    this._aRoute.params.subscribe( (params) => {
+      if (params['id']) {
+        this._aaService.load(Number(params['id']));
+      }
+    });
   }
 
 }

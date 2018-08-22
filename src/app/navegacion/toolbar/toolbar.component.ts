@@ -9,7 +9,7 @@ import { ActivatedRoute, Router, Event, NavigationEnd } from '@angular/router';
 export class ToolbarComponent implements OnInit {
 
   opciones: {opcion: string, ruta: string}[];
-  hide = false;
+  hide = true;
   @Output() visible = new EventEmitter<boolean>();
 
   admin = [
