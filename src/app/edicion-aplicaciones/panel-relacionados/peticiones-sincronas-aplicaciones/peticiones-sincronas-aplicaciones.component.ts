@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AplicacionActivaService } from '../../services/aplicacion-activa.service';
-import { PeticionSincrona } from '../../../modelo/servicio.model';
+import { Servicio } from '../../../modelo/servicio.model';
 
 @Component({
   selector: 'app-peticiones-sincronas-aplicaciones',
@@ -11,9 +11,9 @@ export class PeticionesSincronasAplicacionesComponent implements OnInit {
 
   nuevoServicio = false;
 
-  servicio = new PeticionSincrona();
+  servicio = new Servicio();
 
-  servicios: PeticionSincrona[];
+  servicios: Servicio[];
 
   constructor(private aaService: AplicacionActivaService) {
     // this.servicios = [];
@@ -23,7 +23,7 @@ export class PeticionesSincronasAplicacionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.servicios = this.aaService.aplicacion.panelRelacionados.peticiones;
+    this.servicios = this.aaService.aplicacion.peticiones;
   }
 
   onCancel() {

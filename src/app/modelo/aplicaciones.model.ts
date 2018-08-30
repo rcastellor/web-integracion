@@ -14,10 +14,8 @@ export interface Aplicacion {
         descripcion: string;
     };
     sectores: SectorAplicacion[];
-    panelRelacionados: {
-        notificaciones: any[];
-        broadcast: any[];
-        peticiones: any[];
-        servicios: any[];
-    };
+    notificaciones: any[];
+    broadcast: any[];
+    peticiones: any[];
+    servicios: any[];
 }

@@ -41,7 +41,7 @@ export class BroadcastAplicacionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mensajes = this.aaService.aplicacion.panelRelacionados.broadcast;
+    this.mensajes = this.aaService.aplicacion.broadcast;
   }
 
   onEliminar(index: number) {

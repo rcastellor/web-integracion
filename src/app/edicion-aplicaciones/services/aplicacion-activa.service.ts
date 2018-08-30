@@ -32,12 +32,10 @@ export class AplicacionActivaService {
         { sector: 'ROYO', produccion: false, pruebas: false, desplegada: false, previsto: false },
         { sector: 'PROVINCIAL', produccion: false, pruebas: false, desplegada: false, previsto: false }
       ],
-      panelRelacionados: {
-        notificaciones: [],
-        broadcast: [],
-        peticiones: [],
-        servicios: []
-      }
+      notificaciones: [],
+      broadcast: [],
+      peticiones: [],
+      servicios: []
     };
   }
 

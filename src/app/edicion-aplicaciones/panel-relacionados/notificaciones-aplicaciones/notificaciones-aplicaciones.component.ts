@@ -45,7 +45,7 @@ export class NotificacionesAplicacionesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.mensajes = this.aaService.aplicacion.panelRelacionados.notificaciones;
+    this.mensajes = this.aaService.aplicacion.notificaciones;
   }
 
   onEliminar(index: number) {

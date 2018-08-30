@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { ClarityModule, ClrFormsNextModule } from '@clr/angular';
@@ -29,6 +30,7 @@ import { ToolbarComponent } from './navegacion/toolbar/toolbar.component';
 import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
 import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integraciones.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,7 +53,8 @@ import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integracio
     ClrFormsNextModule,
     BrowserAnimationsModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
