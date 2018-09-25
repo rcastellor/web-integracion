@@ -1,0 +1,57 @@
+{
+	"id": 1 ,
+	"nombre": "DESARROLLO",
+	"descripcion": "ENTORNO DE DESARROLLO",
+	"identificador": "100",
+	"nodo_activo": 1,
+	"ipvirtual": "172.25.4.141",
+	"nodos": [
+		{
+			"id": 1,
+			"nombre": "psisitd005",
+			"descripcion": "DESARROLLO SECTOR",
+			"variable": "DESARROLLO SECTOR",
+			"so": "Linux",
+			"virtualizacion": "VMWARE",
+			"host": "maquinahost",
+			"direccion": "psisitd005.salud.psis"
+		}
+	],
+	"puntos": [
+		{
+			"id": 1,
+			"punto": "RUTA1_HTTP_CLI",
+			"ruta": "RUTA",
+			"identificadores": [
+				{
+					"nodo": 1,
+					"identificador": 199
+				}
+			],
+			"aplicaciones": []
+		}, {
+			"id": 2,
+			"punto": "RUTA2_HTTP_CLI",
+			"ruta": "RUTA",
+			"identificadores": [
+				{
+					"nodo": 1,
+					"identificador": 200
+				}
+			],
+			"aplicaciones": ["BDU"]
+		}
+	],
+	"servidores": [
+		{
+			"tipo": "JBOSS",
+			"nodos": ["miv-jeap-sector01.salud.psis"]
+		}
+	],
+	"basedatos": [
+		{
+			"tipo": "ORACLE",
+			"nodos": ["psisbdi001.salud.psis"]
+		}
+	]
+}
