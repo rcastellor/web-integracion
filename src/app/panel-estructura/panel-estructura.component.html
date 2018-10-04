@@ -1,0 +1,45 @@
+<div class="clr-row">
+  <div class="clr-col-6">
+    <div class="card">
+      <div class="card-header">
+        <b>Sectores</b>
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+          <clr-datagrid class="datagrid-compact" [(clrDgSelected)]="selected">
+              <clr-dg-column [clrDgField]="'id'">Id</clr-dg-column>
+              <clr-dg-column [clrDgField]="'abreviatura'">Abr.</clr-dg-column>
+              <clr-dg-column [clrDgField]="'aplicacion'">Aplicación</clr-dg-column>
+              <clr-dg-row *clrDgItems="let aplicacion of aplicaciones; let i = index"  [clrDgItem]="aplicacion">
+                  <clr-dg-cell>{{aplicacion.id}}</clr-dg-cell>
+                <clr-dg-cell>{{aplicacion.abreviatura}}</clr-dg-cell>
+                <clr-dg-cell>{{aplicacion.aplicacion}}</clr-dg-cell>
+                <clr-dg-action-overflow>
+                    <button class="action-item" (click)="onEditarAplicacion(aplicacion)">Editar</button>
+                    <button class="action-item" (click)="onEliminarAplicacion(aplicacion)">Borrar</button>
+                </clr-dg-action-overflow>
+              </clr-dg-row>
+              <clr-dg-footer>
+                  <clr-dg-pagination #pagination [clrDgPageSize]="5">
+                      <a [routerLink]="['/admin', 'aplicaciones']" ><clr-icon shape="add-text"></clr-icon></a>
+                      {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
+                      of {{pagination.totalItems}} aplicaciones
+                  </clr-dg-pagination>
+              </clr-dg-footer>
+            </clr-datagrid>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="clr-col-6">
+    <div class="card">
+      <div class="card-header">
+        Contactos
+      </div>
+      <div class="card-block">
+        <div class="card-text">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

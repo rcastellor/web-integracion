@@ -5,6 +5,7 @@ import { EdicionAplicacionesComponent } from './edicion-aplicaciones/edicion-apl
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
 import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integraciones.component';
+import { PanelEstructuraComponent } from './panel-estructura/panel-estructura.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path: 'admin', children: [
     {path: '', redirectTo: 'panel', pathMatch: 'full' },
     {path: 'panel', component: PanelAdministracionComponent },
+    {path: 'estructura', component: PanelEstructuraComponent },
     {path: 'aplicaciones', component: EdicionAplicacionesComponent },
     {path: 'aplicaciones/:id', component: EdicionAplicacionesComponent }
   ]}

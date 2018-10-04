@@ -29,6 +29,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ToolbarComponent } from './navegacion/toolbar/toolbar.component';
 import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
 import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integraciones.component';
+import { PanelEstructuraComponent } from './panel-estructura/panel-estructura.component';
 
 
 @NgModule({
@@ -45,7 +46,8 @@ import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integracio
     DashboardComponent,
     ToolbarComponent,
     PanelAdministracionComponent,
-    MapaIntegracionesComponent
+    MapaIntegracionesComponent,
+    PanelEstructuraComponent
   ],
   imports: [
     BrowserModule,

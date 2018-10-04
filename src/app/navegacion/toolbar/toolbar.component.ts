@@ -13,7 +13,8 @@ export class ToolbarComponent implements OnInit {
   @Output() visible = new EventEmitter<boolean>();
 
   admin = [
-    {opcion: 'Aplicaciones', ruta: '/admin/aplicaciones'}
+    {opcion: 'Aplicaciones', ruta: '/admin/aplicaciones'},
+    {opcion: 'Estructura', ruta: '/admin/estructura'}
   ];
 
   monitorizacion = [
