@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormArray, FormBuilder } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { AddContacto } from '../../contacto.actions';
+import { Contacto } from '../../contacto.model';
 
 @Component({
   selector: 'app-formulario-contactos',
@@ -54,8 +55,9 @@ export class FormularioContactosComponent implements OnInit {
   }
 
   onSubmit() {
-    let id = {id: '1', ...this.contactoForm.value};
+    let id: Contacto;
+    id = {id: '1', ...this.contactoForm.value};
     console.log(id);
-    this._store.dispatch(new AddContacto(id));
+    this._store.dispatch(new AddContacto({contacto: id}));
   }
 }
