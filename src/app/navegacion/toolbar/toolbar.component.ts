@@ -14,7 +14,8 @@ export class ToolbarComponent implements OnInit {
 
   admin = [
     {opcion: 'Aplicaciones', ruta: '/admin/aplicaciones'},
-    {opcion: 'Estructura', ruta: '/admin/estructura'}
+    {opcion: 'Estructura', ruta: '/admin/estructura'},
+    {opcion: 'Contactos', ruta: '/admin/contactos'},
   ];
 
   monitorizacion = [

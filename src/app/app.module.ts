@@ -20,7 +20,7 @@ import {
 import {
   BroadcastAplicacionesComponent
 } from './edicion-aplicaciones/panel-relacionados/broadcast-aplicaciones/broadcast-aplicaciones.component';
-import { FormsModule } from '../../node_modules/@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '../../node_modules/@angular/forms';
 import {
   ServiciosSincronosAplicacionesComponent
 } from './edicion-aplicaciones/panel-relacionados/servicios-sincronos-aplicaciones/servicios-sincronos-aplicaciones.component';
@@ -30,6 +30,12 @@ import { ToolbarComponent } from './navegacion/toolbar/toolbar.component';
 import { PanelAdministracionComponent } from './panel-administracion/panel-administracion.component';
 import { MapaIntegracionesComponent } from './mapa-integraciones/mapa-integraciones.component';
 import { PanelEstructuraComponent } from './panel-estructura/panel-estructura.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { environment } from '../environments/environment';
+import * as fromContacto from './contactos/contacto.reducer';
+import { FormularioContactosComponent } from './contactos/admin/formulario-contactos/formulario-contactos.component';
 
 
 @NgModule({
@@ -47,7 +53,8 @@ import { PanelEstructuraComponent } from './panel-estructura/panel-estructura.co
     ToolbarComponent,
     PanelAdministracionComponent,
     MapaIntegracionesComponent,
-    PanelEstructuraComponent
+    PanelEstructuraComponent,
+    FormularioContactosComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +63,11 @@ import { PanelEstructuraComponent } from './panel-estructura/panel-estructura.co
     BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    StoreModule.forRoot(reducers, { metaReducers }),
+    !environment.production ? StoreDevtoolsModule.instrument() : [],
+    StoreModule.forFeature('contacto', fromContacto.reducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

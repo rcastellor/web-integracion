@@ -128,5 +128,8 @@
       }
     }
   },
-  "defaultProject": "web-integracion"
+  "defaultProject": "web-integracion",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
