@@ -11,7 +11,7 @@ import { Contacto } from '../../contacto.model';
 })
 export class FormularioContactosComponent implements OnInit {
 
-
+  idx = 1;
   contactoForm: FormGroup;
 
   constructor(private _formBuilder: FormBuilder,
@@ -55,9 +55,8 @@ export class FormularioContactosComponent implements OnInit {
   }
 
   onSubmit() {
-    let id: Contacto;
-    id = {id: '1', ...this.contactoForm.value};
-    console.log(id);
-    this._store.dispatch(new AddContacto({contacto: id}));
+    let contacto: Contacto;
+    contacto = {id: this.idx++, ...this.contactoForm.value};
+    this._store.dispatch(new AddContacto({contacto: contacto}));
   }
 }

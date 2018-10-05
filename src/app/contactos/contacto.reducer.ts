@@ -1,18 +1,17 @@
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+
 import { Contacto } from './contacto.model';
 import { ContactoActions, ContactoActionTypes } from './contacto.actions';
 
 export interface State extends EntityState<Contacto> {
-  // additional entities state properties
 }
 
 export const adapter: EntityAdapter<Contacto> = createEntityAdapter<Contacto>();
 
 export const initialState: State = adapter.getInitialState({
-  // additional entity state properties
 });
 
-export function reducer(
+export function contactoReducer(
   state = initialState,
   action: ContactoActions
 ): State {

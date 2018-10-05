@@ -67,7 +67,7 @@ import { FormularioContactosComponent } from './contactos/admin/formulario-conta
     ReactiveFormsModule,
     StoreModule.forRoot(reducers, { metaReducers }),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
-    StoreModule.forFeature('contacto', fromContacto.reducer)
+    StoreModule.forFeature('contacto', fromContacto.contactoReducer)
   ],
   providers: [],
   bootstrap: [AppComponent]

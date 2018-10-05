@@ -7,11 +7,9 @@
       <div class="card-block">
         <div class="card-text">
           <clr-datagrid class="datagrid-compact" [(clrDgSelected)]="selected">
-              <clr-dg-column [clrDgField]="'id'">Id</clr-dg-column>
               <clr-dg-column [clrDgField]="'abreviatura'">Abr.</clr-dg-column>
               <clr-dg-column [clrDgField]="'aplicacion'">Aplicación</clr-dg-column>
               <clr-dg-row *clrDgItems="let aplicacion of aplicaciones; let i = index"  [clrDgItem]="aplicacion">
-                  <clr-dg-cell>{{aplicacion.id}}</clr-dg-cell>
                 <clr-dg-cell>{{aplicacion.abreviatura}}</clr-dg-cell>
                 <clr-dg-cell>{{aplicacion.aplicacion}}</clr-dg-cell>
                 <clr-dg-action-overflow>
@@ -31,7 +29,7 @@
       </div>
     </div>
   </div>
-  <div class="clr-col-3">
+  <div class="clr-col-6">
     <div class="card">
       <div class="card-header">
         Contactos
@@ -39,23 +37,27 @@
       <div class="card-block">
         <div class="card-text">
             <clr-datagrid class="datagrid-compact" [(clrDgSelected)]="selected">
-                <clr-dg-column [clrDgField]="'id'">Id</clr-dg-column>
                 <clr-dg-column [clrDgField]="'nombre'">Nombre</clr-dg-column>
                 <clr-dg-column [clrDgField]="'apellidos'">Apellidos</clr-dg-column>
+                <clr-dg-column [clrDgField]="'empresa'">Empresa</clr-dg-column>
+                <clr-dg-column [clrDgField]="'area'">Área</clr-dg-column>
+                <clr-dg-column [clrDgField]="'telefono'">Teléfono</clr-dg-column>
                 <clr-dg-row *clrDgItems="let contacto of contactos$ | async; let i = index"  [clrDgItem]="contacto">
-                    <clr-dg-cell>{{contacto.id}}</clr-dg-cell>
-                  <clr-dg-cell>{{contacto.abreviatura}}</clr-dg-cell>
-                  <clr-dg-cell>{{contacto.aplicacion}}</clr-dg-cell>
+                  <clr-dg-cell>{{contacto.nombre}}</clr-dg-cell>
+                  <clr-dg-cell>{{contacto.apellidos}}</clr-dg-cell>
+                  <clr-dg-cell>{{contacto.empresa}}</clr-dg-cell>
+                  <clr-dg-cell>{{contacto.areas[0]}}</clr-dg-cell>
+                  <clr-dg-cell>{{contacto.telefonos[0]}}</clr-dg-cell>
                   <clr-dg-action-overflow>
-                      <button class="action-item" (click)="onEditarAplicacion(aplicacion)">Editar</button>
-                      <button class="action-item" (click)="onEliminarAplicacion(aplicacion)">Borrar</button>
+                      <button class="action-item" (click)="onEditarContacto(contacto)">Editar</button>
+                      <button class="action-item" (click)="onEliminarContacto(contacto)">Borrar</button>
                   </clr-dg-action-overflow>
                 </clr-dg-row>
                 <clr-dg-footer>
                     <clr-dg-pagination #pagination [clrDgPageSize]="5">
                         <a [routerLink]="['/admin', 'contactos']" ><clr-icon shape="add-text"></clr-icon></a>
                         {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}}
-                        of {{pagination.totalItems}} aplicaciones
+                        of {{pagination.totalItems}} contactos
                     </clr-dg-pagination>
                 </clr-dg-footer>
               </clr-datagrid>          

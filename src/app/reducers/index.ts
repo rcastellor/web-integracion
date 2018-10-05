@@ -15,8 +15,14 @@ export interface State {
 
 export const reducers: ActionReducerMap<State> = {
 
-  contacto: fromContacto.reducer,
+  contacto: fromContacto.contactoReducer,
 };
 
+export const selectContactoState = createFeatureSelector<fromContacto.State>('contacto');
+
+export const selectAllContactos = createSelector(
+  selectContactoState,
+  fromContacto.selectAll
+);
 
 export const metaReducers: MetaReducer<State>[] = !environment.production ? [] : [];
