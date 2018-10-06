@@ -47,7 +47,7 @@
                   <clr-dg-cell>{{contacto.apellidos}}</clr-dg-cell>
                   <clr-dg-cell>{{contacto.empresa}}</clr-dg-cell>
                   <clr-dg-cell>{{contacto.areas[0]}}</clr-dg-cell>
-                  <clr-dg-cell>{{contacto.telefonos[0]}}</clr-dg-cell>
+                  <clr-dg-cell>{{(contacto.telefonos[0]) ? contacto.telefonos[0].telefono : ''}}</clr-dg-cell>
                   <clr-dg-action-overflow>
                       <button class="action-item" (click)="onEditarContacto(contacto)">Editar</button>
                       <button class="action-item" (click)="onEliminarContacto(contacto)">Borrar</button>

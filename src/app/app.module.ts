@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, APP_INITIALIZER } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
@@ -36,6 +36,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import * as fromContacto from './contactos/contacto.reducer';
 import { FormularioContactosComponent } from './contactos/admin/formulario-contactos/formulario-contactos.component';
+import { StartupService } from './services/startup.service';
 
 
 @NgModule({
@@ -69,7 +70,20 @@ import { FormularioContactosComponent } from './contactos/admin/formulario-conta
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreModule.forFeature('contacto', fromContacto.contactoReducer)
   ],
-  providers: [],
+  providers: [
+    StartupService,
+    {
+      provide: APP_INITIALIZER,
+      useFactory: contactosProviderFactory,
+      deps: [StartupService],
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
+
+export function contactosProviderFactory(provider: StartupService) {
+  return () => provider.load();
+}

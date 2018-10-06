@@ -1,49 +1,75 @@
-<form [formGroup]="contactoForm" (ngSubmit)="onSubmit()" class="compact">
-  <section class="form-block">
-    <div class="form-group">
-      <label for="nombre">
-        Nombre:
-      </label>
-      <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre del contacto">
-      <input type="text" formControlName="apellidos" id="apellidos" placeholder="Apellido del contacto">
+<div class="card">
+  <div class="card-header">
+    Creación/Edición de contactos
+  </div>
+  <div class="card-block">
+    <div class="card-text">
+      <form [formGroup]="contactoForm" (ngSubmit)="onSubmit()" class="compact">
+        <section class="form-block">
+          <div class="form-group">
+            <label for="nombre">
+              Nombre:
+            </label>
+            <input type="text" formControlName="nombre" id="nombre" placeholder="Nombre del contacto" required>
+            <input type="text" formControlName="apellidos" id="apellidos" placeholder="Apellido del contacto" required>
+          </div>
+          <div class="form-group">
+            <label>Emails del contacto</label>
+            <button (click)="nuevoMail()" type="button" class="btn btn-sm btn-link"><clr-icon shape="add-text"></clr-icon></button>
+          </div>
+          <div class="form-group" formArrayName="emails" *ngFor="let email of emails.controls; let i=index">
+            <label>
+              Email:
+            </label>
+            <input type="text" [formControlName]="i" placeholder="Email del contacto">
+          </div>
+          <div class="form-group">
+            <label>Telefonos del contacto</label>
+            <button (click)="nuevoTelefono()" type="button" class="btn btn-sm btn-link"><clr-icon shape="add-text"></clr-icon></button>
+          </div>
+          <div formArrayName="telefonos">
+            <div class="form-group" *ngFor="let telefono of telefonos.controls; let i=index" [formGroupName]="i">
+              <label>
+                Telefono o extensión:
+              </label>
+              <input type="text" formControlName="telefono" placeholder="Teléfono o extensión">
+              <input type="text" formControlName="tipo" placeholder="Tipo de teléfono">
+              <button (click)="eliminaTelefono(i)" type="button" class="btn btn-sm btn-link"><clr-icon shape="times"></clr-icon></button>
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Áreas del contacto</label>
+            <button (click)="nuevoArea()" type="button" class="btn btn-sm btn-link"><clr-icon shape="add-text"></clr-icon></button>
+          </div>
+          <div class="form-group" formArrayName="areas" *ngFor="let area of areas.controls; let i=index">
+            <label>
+              Área:
+            </label>
+            <input type="text" [formControlName]="i" placeholder="Área">
+          </div>
+          <div class="form-group">
+            <label for="empresa">
+              Empresa:
+            </label>
+            <input type="text" formControlName="empresa" id="empresa" placeholder="Empresa">
+          </div>
+          <div class="form-group">
+            <label for="ubicacion">
+              Ubicación:
+            </label>
+            <input type="text" formControlName="ubicacion" id="ubicación" placeholder="Ubicación">
+          </div>
+          <div class="form-group">
+            <label for="notas">
+              Notas:
+            </label>
+            <textarea formControlName="notas" id="notas" placeholder="Notas"></textarea>
+          </div>
+          <button type="button" class="btn btn-primary">Cancelar</button>
+          <button type="submit" [disabled]="!contactoForm.valid" class="btn btn-primary">Guardar</button>
+          <button type="submit" [disabled]="!contactoForm.valid" class="btn btn-primary">Guardar y Continuar</button>
+        </section>
+      </form>
     </div>
-    <div class="form-group">
-      <label>Emails del contacto</label>
-      <button (click)="nuevoMail()" type="button" class="btn btn-icon btn-primary">+</button>
-    </div>
-    <div class="form-group" formArrayName="emails" *ngFor="let email of emails.controls; let i=index">
-      <label>
-        Email:
-      </label>
-      <input type="text" [formControlName]="i" placeholder="Email del contacto">
-    </div>
-    <div class="form-group">
-      <label>Telefonos del contacto</label>
-      <button (click)="nuevoTelefono()" type="button" class="btn btn-icon btn-primary">+</button>
-    </div>
-    <div class="form-group" formArrayName="telefonos" *ngFor="let telefono of telefonos.controls; let i=index">
-      <label>
-        Telefono o extensión:
-      </label>
-      <input type="text" [formControlName]="i" placeholder="Telefono o extensión">
-    </div>
-    <div class="form-group">
-      <label>Áreas del contacto</label>
-      <button (click)="nuevoArea()" type="button" class="btn btn-icon btn-primary">+</button>
-    </div>
-    <div class="form-group" formArrayName="areas" *ngFor="let area of areas.controls; let i=index">
-      <label>
-        Área:
-      </label>
-      <input type="text" [formControlName]="i" placeholder="Área">
-    </div>
-    <div class="form-group">
-      <label for="empresa">
-        Empresa:
-      </label>
-      <input type="text" formControlName="empresa" id="empresa" placeholder="Empresa">
-    </div>
-    <button type="submit" [disabled]="!contactoForm.valid" class="btn btn-primary">Guardar</button>
-  </section>
-
-</form>
+  </div>
+</div>
